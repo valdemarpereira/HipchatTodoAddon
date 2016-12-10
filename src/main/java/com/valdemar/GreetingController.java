@@ -8,10 +8,8 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import com.samskivert.mustache.Mustache;
 import com.samskivert.mustache.Template;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class GreetingController {
@@ -30,10 +28,21 @@ public class GreetingController {
 
         Template tmpl = Mustache.compiler().compile(fileReader);
         Map<String, String> data = new HashMap<String, String>();
-        data.put("localBaseUrl", "XXX");
+        data.put("localBaseUrl", "https://d32789d5.ngrok.io");
         System.out.println(tmpl.execute(data));
 
 
         return tmpl.execute(data);
     }
+
+    @RequestMapping(path="/installable", method = RequestMethod.POST, consumes = "application/json")
+    @ResponseStatus(value = HttpStatus.OK)
+    public void installable(@RequestBody String body) {
+
+
+        return;
+
+    }
+
+
 }
