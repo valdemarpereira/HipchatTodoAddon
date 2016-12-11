@@ -28,8 +28,8 @@ project/plugins/project/
 .classpath
 .project
 .settings/
-.idea/workspace.xml
-.idea/tasks.xml
+.idea/
 *.iws
+*.iml
 log/
 target/
